@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_course_overviews",
+  "info": {
+    "displayName": "Overview"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "what_to_learns": {
+      "type": "component",
+      "component": "shared.single-text",
+      "repeatable": true
+    },
+    "features": {
+      "type": "component",
+      "component": "shared.single-text",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

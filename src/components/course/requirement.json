@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_course_requirements",
+  "info": {
+    "displayName": "Requirement",
+    "icon": "check"
+  },
+  "attributes": {
+    "pre_requirement": {
+      "type": "component",
+      "component": "shared.single-text",
+      "repeatable": true
+    },
+    "technical_requirement": {
+      "type": "component",
+      "component": "shared.single-text",
+      "repeatable": true
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

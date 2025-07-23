@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course",
+    "description": "Online kurs yapısı"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "previewVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "overview": {
+      "type": "component",
+      "component": "course.overview",
+      "repeatable": false
+    },
+    "requirements": {
+      "type": "component",
+      "component": "course.requirement",
+      "repeatable": true
+    },
+    "outcomes": {
+      "type": "component",
+      "component": "course.outcome",
+      "repeatable": true
+    },
+    "curriculum": {
+      "type": "component",
+      "component": "course.curriculum-section",
+      "repeatable": true
+    }
+  }
+}

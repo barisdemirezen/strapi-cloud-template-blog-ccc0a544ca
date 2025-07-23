@@ -1,53 +1,67 @@
-import type { Struct, Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface CourseCurriculumItem extends Struct.ComponentSchema {
+  collectionName: 'components_course_curriculum_items';
   info: {
-    displayName: 'Slider';
-    icon: 'address-book';
-    description: '';
+    displayName: 'Curriculum Item';
+    icon: 'book';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
-  };
-}
-
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
-  info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
-  };
-}
-
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
-  info: {
-    displayName: 'Rich text';
-    icon: 'align-justify';
-    description: '';
-  };
-  attributes: {
-    body: Schema.Attribute.RichText;
-  };
-}
-
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
+    duration_minute: Schema.Attribute.Integer;
     title: Schema.Attribute.String;
-    body: Schema.Attribute.Text;
+  };
+}
+
+export interface CourseCurriculumSection extends Struct.ComponentSchema {
+  collectionName: 'components_course_curriculum_sections';
+  info: {
+    displayName: 'Curriculum Section';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'course.curriculum-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CourseOutcome extends Struct.ComponentSchema {
+  collectionName: 'components_course_outcomes';
+  info: {
+    displayName: 'Outcome';
+    icon: 'bullseye';
+  };
+  attributes: {
+    career_outcomes: Schema.Attribute.Component<'shared.single-text', true>;
+    description: Schema.Attribute.Text;
+    skill_outcomes: Schema.Attribute.Component<'shared.single-text', true>;
+  };
+}
+
+export interface CourseOverview extends Struct.ComponentSchema {
+  collectionName: 'components_course_overviews';
+  info: {
+    displayName: 'Overview';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    features: Schema.Attribute.Component<'shared.single-text', true>;
+    what_to_learns: Schema.Attribute.Component<'shared.single-text', true>;
+  };
+}
+
+export interface CourseRequirement extends Struct.ComponentSchema {
+  collectionName: 'components_course_requirements';
+  info: {
+    displayName: 'Requirement';
+    icon: 'check';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    pre_requirement: Schema.Attribute.Component<'shared.single-text', true>;
+    technical_requirement: Schema.Attribute.Component<
+      'shared.single-text',
+      true
+    >;
   };
 }
 
@@ -62,14 +76,81 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedQuote extends Struct.ComponentSchema {
+  collectionName: 'components_shared_quotes';
+  info: {
+    displayName: 'Quote';
+    icon: 'indent';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedRichText extends Struct.ComponentSchema {
+  collectionName: 'components_shared_rich_texts';
+  info: {
+    description: '';
+    displayName: 'Rich text';
+    icon: 'align-justify';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText;
+  };
+}
+
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
+    description: '';
+    displayName: 'Seo';
+    icon: 'allergies';
+    name: 'Seo';
+  };
+  attributes: {
+    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    shareImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface SharedSingleText extends Struct.ComponentSchema {
+  collectionName: 'components_shared_single_texts';
+  info: {
+    displayName: 'Single Text';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface SharedSlider extends Struct.ComponentSchema {
+  collectionName: 'components_shared_sliders';
+  info: {
+    description: '';
+    displayName: 'Slider';
+    icon: 'address-book';
+  };
+  attributes: {
+    files: Schema.Attribute.Media<'images', true>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.slider': SharedSlider;
-      'shared.seo': SharedSeo;
-      'shared.rich-text': SharedRichText;
-      'shared.quote': SharedQuote;
+      'course.curriculum-item': CourseCurriculumItem;
+      'course.curriculum-section': CourseCurriculumSection;
+      'course.outcome': CourseOutcome;
+      'course.overview': CourseOverview;
+      'course.requirement': CourseRequirement;
       'shared.media': SharedMedia;
+      'shared.quote': SharedQuote;
+      'shared.rich-text': SharedRichText;
+      'shared.seo': SharedSeo;
+      'shared.single-text': SharedSingleText;
+      'shared.slider': SharedSlider;
     }
   }
 }

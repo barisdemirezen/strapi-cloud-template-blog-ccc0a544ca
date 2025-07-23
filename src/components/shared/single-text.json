@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_single_texts",
+  "info": {
+    "displayName": "Single Text"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

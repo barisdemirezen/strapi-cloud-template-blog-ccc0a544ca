@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_course_outcomes",
+  "info": {
+    "displayName": "Outcome",
+    "icon": "bullseye"
+  },
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "career_outcomes": {
+      "type": "component",
+      "component": "shared.single-text",
+      "repeatable": true
+    },
+    "skill_outcomes": {
+      "type": "component",
+      "component": "shared.single-text",
+      "repeatable": true
+    }
+  }
+}

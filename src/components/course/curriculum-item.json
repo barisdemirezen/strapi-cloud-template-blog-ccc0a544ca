@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_course_curriculum_items",
+  "info": {
+    "displayName": "Curriculum Item",
+    "icon": "book"
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "duration_minute": {
+      "type": "integer"
+    }
+  }
+}

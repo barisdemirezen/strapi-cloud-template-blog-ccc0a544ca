@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_course_curriculum_sections",
+  "info": {
+    "displayName": "Curriculum Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "course.curriculum-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
