@@ -24,6 +24,23 @@ export interface CourseCurriculumSection extends Struct.ComponentSchema {
   };
 }
 
+export interface CourseEnrollmentOption extends Struct.ComponentSchema {
+  collectionName: 'components_course_enrollment_options';
+  info: {
+    displayName: 'EnrollmentOption';
+  };
+  attributes: {
+    available: Schema.Attribute.Boolean;
+    discount: Schema.Attribute.Integer;
+    features: Schema.Attribute.Component<'shared.single-text', true>;
+    originalPrice: Schema.Attribute.Decimal;
+    popular: Schema.Attribute.Boolean;
+    price: Schema.Attribute.Decimal;
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['in-person', 'live-zoom', 'online']>;
+  };
+}
+
 export interface CourseOutcome extends Struct.ComponentSchema {
   collectionName: 'components_course_outcomes';
   info: {
@@ -142,6 +159,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'course.curriculum-item': CourseCurriculumItem;
       'course.curriculum-section': CourseCurriculumSection;
+      'course.enrollment-option': CourseEnrollmentOption;
       'course.outcome': CourseOutcome;
       'course.overview': CourseOverview;
       'course.requirement': CourseRequirement;

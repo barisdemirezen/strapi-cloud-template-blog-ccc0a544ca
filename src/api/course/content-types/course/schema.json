@@ -56,6 +56,11 @@
       "type": "component",
       "component": "course.curriculum-section",
       "repeatable": true
+    },
+    "enrollmentOptions": {
+      "type": "component",
+      "component": "course.enrollment-option",
+      "repeatable": true
     }
   }
 }

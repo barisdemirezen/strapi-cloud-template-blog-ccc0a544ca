@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_course_enrollment_options",
+  "info": {
+    "displayName": "EnrollmentOption"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "in-person",
+        "live-zoom",
+        "online"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "originalPrice": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "features": {
+      "type": "component",
+      "component": "shared.single-text",
+      "repeatable": true
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "popular": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

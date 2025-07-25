@@ -523,6 +523,10 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     curriculum: Schema.Attribute.Component<'course.curriculum-section', true>;
     description: Schema.Attribute.Text;
+    enrollmentOptions: Schema.Attribute.Component<
+      'course.enrollment-option',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
