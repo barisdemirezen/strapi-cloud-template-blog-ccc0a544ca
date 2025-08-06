@@ -61,6 +61,12 @@
       "type": "component",
       "component": "course.enrollment-option",
       "repeatable": true
+    },
+    "course_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-category.course-category",
+      "inversedBy": "courses"
     }
   }
 }

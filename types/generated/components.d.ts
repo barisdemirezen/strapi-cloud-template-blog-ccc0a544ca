@@ -1,5 +1,13 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CourseCourseCategory extends Struct.ComponentSchema {
+  collectionName: 'components_course_course_categories';
+  info: {
+    displayName: 'CourseCategory';
+  };
+  attributes: {};
+}
+
 export interface CourseCurriculumItem extends Struct.ComponentSchema {
   collectionName: 'components_course_curriculum_items';
   info: {
@@ -157,6 +165,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'course.course-category': CourseCourseCategory;
       'course.curriculum-item': CourseCurriculumItem;
       'course.curriculum-section': CourseCurriculumSection;
       'course.enrollment-option': CourseEnrollmentOption;
