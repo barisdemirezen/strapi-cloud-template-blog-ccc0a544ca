@@ -1,5 +1,22 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CourseBanner extends Struct.ComponentSchema {
+  collectionName: 'components_course_banners';
+  info: {
+    displayName: 'Banner';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    primaryButtonLink: Schema.Attribute.Text & Schema.Attribute.Required;
+    primaryButtonText: Schema.Attribute.String & Schema.Attribute.Required;
+    secondaryButtonLink: Schema.Attribute.Text;
+    secondaryButtonText: Schema.Attribute.String;
+    thumbnail: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CourseCourseCategory extends Struct.ComponentSchema {
   collectionName: 'components_course_course_categories';
   info: {
@@ -46,6 +63,16 @@ export interface CourseEnrollmentOption extends Struct.ComponentSchema {
     price: Schema.Attribute.Decimal;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['in-person', 'live-zoom', 'online']>;
+  };
+}
+
+export interface CourseFeaturedCourseItem extends Struct.ComponentSchema {
+  collectionName: 'components_course_featured_course_items';
+  info: {
+    displayName: 'FeaturedCourseItem';
+  };
+  attributes: {
+    courses: Schema.Attribute.Relation<'oneToMany', 'api::course.course'>;
   };
 }
 
@@ -165,10 +192,12 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'course.banner': CourseBanner;
       'course.course-category': CourseCourseCategory;
       'course.curriculum-item': CourseCurriculumItem;
       'course.curriculum-section': CourseCurriculumSection;
       'course.enrollment-option': CourseEnrollmentOption;
+      'course.featured-course-item': CourseFeaturedCourseItem;
       'course.outcome': CourseOutcome;
       'course.overview': CourseOverview;
       'course.requirement': CourseRequirement;

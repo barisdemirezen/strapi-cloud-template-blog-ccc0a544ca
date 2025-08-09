@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "featured_courses",
+  "info": {
+    "singularName": "featured-course",
+    "pluralName": "featured-courses",
+    "displayName": "FeaturedCourse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course"
+    }
+  }
+}

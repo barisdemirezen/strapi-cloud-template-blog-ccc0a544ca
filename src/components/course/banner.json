@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_course_banners",
+  "info": {
+    "displayName": "Banner"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "primaryButtonText": {
+      "type": "string",
+      "required": true
+    },
+    "secondaryButtonText": {
+      "type": "string"
+    },
+    "primaryButtonLink": {
+      "type": "text",
+      "required": true
+    },
+    "secondaryButtonLink": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
