@@ -121,6 +121,16 @@
       "relation": "manyToOne",
       "target": "api::course-category.course-category",
       "inversedBy": "courses"
+    },
+    "faqs": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.faq-item",
+      "repeatable": true
     }
   }
 }

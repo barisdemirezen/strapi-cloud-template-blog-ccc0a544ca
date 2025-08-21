@@ -57,7 +57,6 @@ export interface CourseEnrollmentOption extends Struct.ComponentSchema {
   attributes: {
     available: Schema.Attribute.Boolean;
     discount: Schema.Attribute.Integer;
-    features: Schema.Attribute.Component<'shared.single-text', true>;
     originalPrice: Schema.Attribute.Decimal;
     popular: Schema.Attribute.Boolean;
     price: Schema.Attribute.Decimal;
@@ -114,6 +113,17 @@ export interface CourseRequirement extends Struct.ComponentSchema {
       'shared.single-text',
       true
     >;
+  };
+}
+
+export interface SharedFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faq_items';
+  info: {
+    displayName: 'FaqItem';
+  };
+  attributes: {
+    answer: Schema.Attribute.Text & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -201,6 +211,7 @@ declare module '@strapi/strapi' {
       'course.outcome': CourseOutcome;
       'course.overview': CourseOverview;
       'course.requirement': CourseRequirement;
+      'shared.faq-item': SharedFaqItem;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

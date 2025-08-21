@@ -25,11 +25,6 @@
     "discount": {
       "type": "integer"
     },
-    "features": {
-      "type": "component",
-      "component": "shared.single-text",
-      "repeatable": true
-    },
     "available": {
       "type": "boolean"
     },
