@@ -625,6 +625,38 @@ export interface ApiCourseCategoryCourseCategory
   };
 }
 
+export interface ApiCourseContentCourseContent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'course_contents';
+  info: {
+    displayName: 'CourseContent';
+    pluralName: 'course-contents';
+    singularName: 'course-content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contents: Schema.Attribute.DynamicZone<['shared.media', 'quiz.quiz']> &
+      Schema.Attribute.Required;
+    courses: Schema.Attribute.Relation<'manyToMany', 'api::course.course'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::course-content.course-content'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
   collectionName: 'courses';
   info: {
@@ -645,6 +677,10 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     course_category: Schema.Attribute.Relation<
       'manyToOne',
       'api::course-category.course-category'
+    >;
+    course_contents: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::course-content.course-content'
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1343,6 +1379,7 @@ declare module '@strapi/strapi' {
       'api::banner.banner': ApiBannerBanner;
       'api::category.category': ApiCategoryCategory;
       'api::course-category.course-category': ApiCourseCategoryCourseCategory;
+      'api::course-content.course-content': ApiCourseContentCourseContent;
       'api::course.course': ApiCourseCourse;
       'api::faq.faq': ApiFaqFaq;
       'api::featured-course.featured-course': ApiFeaturedCourseFeaturedCourse;

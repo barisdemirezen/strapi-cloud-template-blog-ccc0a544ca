@@ -131,6 +131,12 @@
       },
       "component": "shared.faq-item",
       "repeatable": true
+    },
+    "course_contents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course-content.course-content",
+      "mappedBy": "courses"
     }
   }
 }

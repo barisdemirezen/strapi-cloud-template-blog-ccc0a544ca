@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_quiz_question_options",
+  "info": {
+    "displayName": "Question Option"
+  },
+  "options": {},
+  "attributes": {
+    "option": {
+      "type": "string",
+      "required": true
+    },
+    "isCorrect": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "config": {}
+}

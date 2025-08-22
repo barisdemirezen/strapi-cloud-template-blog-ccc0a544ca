@@ -116,6 +116,42 @@ export interface CourseRequirement extends Struct.ComponentSchema {
   };
 }
 
+export interface QuizQuestion extends Struct.ComponentSchema {
+  collectionName: 'components_quiz_questions';
+  info: {
+    displayName: 'Question';
+  };
+  attributes: {
+    answerDescription: Schema.Attribute.Text;
+    options: Schema.Attribute.Component<'quiz.question-option', true> &
+      Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface QuizQuestionOption extends Struct.ComponentSchema {
+  collectionName: 'components_quiz_question_options';
+  info: {
+    displayName: 'Question Option';
+  };
+  attributes: {
+    isCorrect: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    option: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface QuizQuiz extends Struct.ComponentSchema {
+  collectionName: 'components_quiz_quizzes';
+  info: {
+    displayName: 'Quiz';
+  };
+  attributes: {
+    questions: Schema.Attribute.Component<'quiz.question', true>;
+  };
+}
+
 export interface SharedFaqItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_faq_items';
   info: {
@@ -134,7 +170,7 @@ export interface SharedMedia extends Struct.ComponentSchema {
     icon: 'file-video';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    file: Schema.Attribute.Media<'files' | 'videos' | 'images'>;
   };
 }
 
@@ -211,6 +247,9 @@ declare module '@strapi/strapi' {
       'course.outcome': CourseOutcome;
       'course.overview': CourseOverview;
       'course.requirement': CourseRequirement;
+      'quiz.question': QuizQuestion;
+      'quiz.question-option': QuizQuestionOption;
+      'quiz.quiz': QuizQuiz;
       'shared.faq-item': SharedFaqItem;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

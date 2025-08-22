@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_quiz_quizzes",
+  "info": {
+    "displayName": "Quiz"
+  },
+  "options": {},
+  "attributes": {
+    "questions": {
+      "type": "component",
+      "component": "quiz.question",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
