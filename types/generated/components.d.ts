@@ -49,6 +49,16 @@ export interface CourseCurriculumSection extends Struct.ComponentSchema {
   };
 }
 
+export interface CourseDateList extends Struct.ComponentSchema {
+  collectionName: 'components_course_date_lists';
+  info: {
+    displayName: 'DateList';
+  };
+  attributes: {
+    date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+  };
+}
+
 export interface CourseEnrollmentOption extends Struct.ComponentSchema {
   collectionName: 'components_course_enrollment_options';
   info: {
@@ -242,6 +252,7 @@ declare module '@strapi/strapi' {
       'course.course-category': CourseCourseCategory;
       'course.curriculum-item': CourseCurriculumItem;
       'course.curriculum-section': CourseCurriculumSection;
+      'course.date-list': CourseDateList;
       'course.enrollment-option': CourseEnrollmentOption;
       'course.featured-course-item': CourseFeaturedCourseItem;
       'course.outcome': CourseOutcome;

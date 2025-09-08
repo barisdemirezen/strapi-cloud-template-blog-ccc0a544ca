@@ -137,6 +137,16 @@
       "relation": "manyToMany",
       "target": "api::course-content.course-content",
       "mappedBy": "courses"
+    },
+    "dates": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "course.date-list",
+      "repeatable": true
     }
   }
 }

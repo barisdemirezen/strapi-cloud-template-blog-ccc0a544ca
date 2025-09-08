@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_course_date_lists",
+  "info": {
+    "displayName": "DateList"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "datetime",
+      "required": true
+    }
+  },
+  "config": {}
+}
