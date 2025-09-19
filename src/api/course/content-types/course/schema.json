@@ -76,16 +76,6 @@
       "component": "course.overview",
       "repeatable": false
     },
-    "requirements": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "course.requirement",
-      "repeatable": true
-    },
     "outcomes": {
       "type": "component",
       "pluginOptions": {
@@ -147,6 +137,18 @@
       },
       "component": "course.date-list",
       "repeatable": true
+    },
+    "level": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "default": 1,
+      "min": 1,
+      "max": 5
     }
   }
 }
