@@ -77,6 +77,14 @@
         "shared.rich-text",
         "shared.slider"
       ]
+    },
+    "date": {
+      "type": "date",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
