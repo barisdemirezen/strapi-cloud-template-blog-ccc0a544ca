@@ -645,7 +645,6 @@ export interface ApiCourseContentCourseContent
   attributes: {
     contents: Schema.Attribute.DynamicZone<['shared.media', 'quiz.quiz']> &
       Schema.Attribute.Required;
-    courses: Schema.Attribute.Relation<'manyToMany', 'api::course.course'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -684,10 +683,6 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::course-category.course-category'
     >;
-    course_contents: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::course-content.course-content'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -709,6 +704,19 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    duration: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
     enrollmentOptions: Schema.Attribute.Component<
       'course.enrollment-option',
       true

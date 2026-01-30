@@ -122,12 +122,6 @@
       "component": "shared.faq-item",
       "repeatable": true
     },
-    "course_contents": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::course-content.course-content",
-      "mappedBy": "courses"
-    },
     "dates": {
       "type": "component",
       "pluginOptions": {
@@ -159,6 +153,16 @@
       },
       "targetField": "title",
       "required": true
+    },
+    "duration": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "min": 0
     }
   }
 }

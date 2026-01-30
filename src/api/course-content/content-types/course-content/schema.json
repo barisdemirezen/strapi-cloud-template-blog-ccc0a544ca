@@ -11,12 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "courses": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::course.course",
-      "inversedBy": "course_contents"
-    },
     "title": {
       "type": "string",
       "required": true
