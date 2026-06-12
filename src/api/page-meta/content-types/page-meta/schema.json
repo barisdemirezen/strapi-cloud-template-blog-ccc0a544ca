@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "page_metas",
+  "info": {
+    "singularName": "page-meta",
+    "pluralName": "page-metas",
+    "displayName": "Page Meta",
+    "description": "URL bazlı sayfa özel alanları"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}
